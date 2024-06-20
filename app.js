@@ -1,4 +1,5 @@
 const express = require('express')
+const pokemon = require('./models/pokemon.json');
 
 const app = express()
 
@@ -26,6 +27,12 @@ app.get('/bugs/:numberOfBugs', (req, res) => {
             <br>
             <a href='/bugs/${numberOfBugs + 2}'>Pull one down, patch it around</a>`);
     }
+})
+
+//Poke-Express
+// List of ALL the pokemon
+app.get('/pokemon', (req, res) => {
+    res.json(pokemon);
 })
 
 
