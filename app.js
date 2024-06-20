@@ -30,9 +30,25 @@ app.get('/bugs/:numberOfBugs', (req, res) => {
 })
 
 //Poke-Express
+
+//Welcome Route
+app.get('/', (req, res) => {
+    res.send('Welcome 99 Pokemon')
+})
+
 // List of ALL the pokemon
 app.get('/pokemon', (req, res) => {
     res.json(pokemon);
+})
+
+//Get Pokémon by index
+app.get('/pokemon/:indexOfArray', (req, res) => {
+    const index = req.params.indexOfArray;
+    if (pokemon[index]) {
+        res.json(pokemon[index]);
+    } else {
+        res.send(`Sorry, no pokemon found at ${index}`)
+    }
 })
 
 
